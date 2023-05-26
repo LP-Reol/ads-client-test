@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/LP-Reol/ads-client-test#readme",
   "dependencies": {
+    "ads-client": "^1.14.2",
     "express": "^4.18.2"
   }
 }
