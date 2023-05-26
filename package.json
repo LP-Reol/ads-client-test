@@ -1,0 +1,22 @@
+{
+  "name": "ads-client-test",
+  "version": "1.0.0",
+  "description": "simple node.js server to test ads-client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LP-Reol/ads-client-test.git"
+  },
+  "author": "Jakob Bak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LP-Reol/ads-client-test/issues"
+  },
+  "homepage": "https://github.com/LP-Reol/ads-client-test#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
