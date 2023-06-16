@@ -12,8 +12,8 @@ const client = new ads.Client({
 
 client.connect()
     .then(res => {
-        console.log('Connected to the ${res.targetAmsNetId}')
-        console.log('Router assigned us AmsNetId ${res.localAmsNetId} and port ${res.localAdsPort}')
+        console.log(`Connected to the ${res.targetAmsNetId}`)
+        console.log(`Router assigned us AmsNetId ${res.localAmsNetId} and port ${res.localAdsPort}`)
         return client.disconnect()
     })
     .then(() => {
