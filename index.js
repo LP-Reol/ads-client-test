@@ -36,8 +36,8 @@ client.connect()
     .then(res => {
         console.log(`Connected to the ${res.targetAmsNetId}`)
         console.log(`Router assigned us AmsNetId ${res.localAmsNetId} and port ${res.localAdsPort}`)
-        client.readSymbol('MAIN.cnt').then((res) => {
-            console.log(`cnt = ${res.value}`)
+        client.readSymbol('MAIN.sMachineState').then((res) => {
+            console.log(`sMachineState = ${res.value}`)
             return client.disconnect()
         })
     })
