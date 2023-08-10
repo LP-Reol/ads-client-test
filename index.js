@@ -17,10 +17,8 @@ client.connect()
     .then(res => {
         console.log(`Connected to the ${res.targetAmsNetId}`)
         console.log(`Router assigned us AmsNetId ${res.localAmsNetId} and port ${res.localAdsPort}`)
-        client.readSymbol('MAIN.cnt').then((res) => {
-            console.log(`cnt = ${res.value}`)
-            return client.disconnect()
-        })
+        client.subscribe('MAIN.cnt',
+            (res) => console.log(`cnt = ${res.value}`))
     })
     .then(() => {
         console.log('Disconnected')
@@ -29,6 +27,12 @@ client.connect()
         console.log('Something Failed:', err)
     })
 
-app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
+// HTTP server
+app.listen(port, () => {
     console.log(`Now listening on port ${port}`);
+});
+
+process.on('SIGINT', function () {
+    console.log("Caught interrupt signal, disconnecting ADS ...")
+    client.disconnect().finally(() => process.exit())
 });
