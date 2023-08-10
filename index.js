@@ -5,13 +5,22 @@ const app = express();     // Instantiate an express app, the main work horse of
 const port = 8000;              // Save the port number where your server will be listening
 
 const client = new ads.Client({
-    localAmsNetId: '192.168.0.20.1.1',  // Can be anything but needs to be in PLC StaticRoutes.xml file
-    localAdsPort: 32750,                // Can be anything that is not used
-    targetAmsNetId: '172.16.21.180.1.1',
+
+    // Setup 2: client <-> client ADS router <-> PLC ADS router <-> PLC
+    targetAmsNetId: "10.3.0.20.1.1",
     targetAdsPort: 851,
-    routerAddress: '192.168.0.30',
-    routerTcpPort: 48898
+
+    // Setup 3: client <-> PLC ADS router <-> PLC
+    // localAmsNetId: "192.168.0.2.1.1",
+    // localAdsPort: 32752,
+    // targetAmsNetId: "10.3.0.20.1.1",
+    // targetAdsPort: 851,
+    // routerAddress: "192.168.0.13",
+    // routerTcpPort: 48898,
 })
+
+// Enable verbose debug output
+// client.setDebugging(3)
 
 client.connect()
     .then(res => {
